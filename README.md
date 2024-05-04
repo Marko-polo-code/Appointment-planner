@@ -4,7 +4,7 @@ Webapp to add contacts and scheduling appointments.
 
 ## Screenshots
 
-![Screenshot](./public/Screenshot 2024-05-04 at 14.22.30.png)
+![Screenshot](./public/Screenshot%202024-05-04%20at%2014.22.30.png)
 
 ## Features
 
