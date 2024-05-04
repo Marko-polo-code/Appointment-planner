@@ -8,34 +8,6 @@ export const ContactsPage = ({contacts = [], addContact}) => {
   const [email, setEmail] = useState("");
   const [isDuplicate, setIsDuplicate] = useState(false);
 
-  useEffect(() => {
-    const checkDuplicate = (name) => {
-      if (contacts.find((contact) => contact.name === name)) {
-        setIsDuplicate(true);
-      } else {
-        setIsDuplicate(false);
-      }
-    };
-    checkDuplicate(name);
-  }, [name, contacts]);
-
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    switch (name) {
-      case "name":
-        setName(value);
-        break;
-      case "phone":
-        setPhone(value);
-        break;
-      case "email":
-        setEmail(value);
-        break;
-      default:
-        break;
-    }
-  };
-
   const handleSubmit = (e) => {
     e.preventDefault();
 
@@ -47,23 +19,36 @@ export const ContactsPage = ({contacts = [], addContact}) => {
     }
   };
 
+  useEffect(() => {
+    const checkDuplicate = (name) => {
+      if (contacts.find((contact) => contact.name === name)) {
+        setIsDuplicate(true);
+      } else {
+        setIsDuplicate(false);
+      }
+    };
+    checkDuplicate(name);
+  }, [name, contacts]);
+
   return (
     <div>
       <section>
         <h2>Add Contact</h2>
         <ContactForm
           name={name}
+          setName={setName}
           phone={phone}
+          setPhone={setPhone}
           email={email}
+          setEmail={setEmail}
           isDuplicate={isDuplicate}
-          handleInputChange={handleInputChange}
           handleSubmit={handleSubmit}
         />
       </section>
       <hr />
       <section>
         <h2>Contacts</h2>
-        <TileList array={contacts} />
+        <TileList tiles={contacts} />
       </section>
     </div>
   );

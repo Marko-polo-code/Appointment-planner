@@ -23,8 +23,9 @@ export const AppointmentsPage = ( {appointments, contacts, addAppointment}) => {
       <section>
         <h2>Add Appointment</h2>
         <AppointmentForm
+          contacts={contacts}
           name={name}
-          setName={setName}
+          setTitle={setName}
           contact={contact}
           setContact={setContact}
           date={date}
@@ -37,7 +38,7 @@ export const AppointmentsPage = ( {appointments, contacts, addAppointment}) => {
       <hr />
       <section>
         <h2>Appointments</h2>
-        <TileList data={appointments} />
+        <TileList tiles={appointments} />
       </section>
     </div>
   );

@@ -9,11 +9,24 @@ function App() {
   const [appointments, setAppointments] = useState([]);
 
   const addContact = (name, phone, email) => {
-    setContacts([...contacts, {name, phone, email}]);
+    setContacts([
+      ...contacts,
+      {
+        name,
+        phone,
+        email
+      }]);
   }
 
   const addAppointment = (title, contact, date, time) => {
-    setAppointments([...appointments, {title, contact, date, time}]);
+    setAppointments([
+      ...appointments,
+      {
+        title,
+        contact,
+        date,
+        time
+      }]);
   }
 
   const router = createBrowserRouter(createRoutesFromElements(
